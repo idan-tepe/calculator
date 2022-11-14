@@ -3,12 +3,17 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(7, 1fr);
   grid-auto-flow: column;
-  background-color: lightblue;
   height: 50vh;
+}
+
+button {
+  background-color: lightblue;
+  border: 0.5px solid gray;
 }
 
 button:hover {
   font-weight: bold;
+  background-color: lightgreen;
 }
 
 .left {
@@ -30,15 +35,31 @@ button:hover {
   grid-column: 2/5;
   grid-row: 1;
   text-align: center;
+  border: 0.5px solid gray;
 }
 
 #screen {
   grid-column: 2/5;
   grid-row: 2;
-  background-color: aliceblue;
+  border: 3px solid gray;
+  text-align: center;
 }
 
 #c {
   grid-column: 2/5;
   grid-row: 3;
+}
+
+body.dark {
+  background-color: black;
+  color: aliceblue;
+}
+
+body.dark button {
+  background-color: brown;
+  color: aliceblue;
+}
+
+body.dark button:hover {
+  background-color: rgb(186, 92, 92);
 }/*# sourceMappingURL=styles.css.map */
