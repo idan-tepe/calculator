@@ -16,6 +16,7 @@ for (let button = 0; button < buttons.length; button++) {
     } else if (buttons[button].getAttribute("class").includes("operator")) {
       if (oper) {
         oper = buttons[button].getAttribute("id");
+        console.log(oper, num1, num2);
         console.log(num1 + oper + num2);
         num1 = eval(num1 + oper + num2);
         num2 = "";
