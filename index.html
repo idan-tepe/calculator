@@ -8,40 +8,42 @@
     <title>Calculator</title>
   </head>
   <body>
-    <div class="container">
-      <span id="calc-header">My calculator</span>
-      <span id="screen"></span>
-      <button class="left" onclick="info()">&#128712;</button>
-      <button id="&#128161;" class="left">&#128161;</button>
-      <button id="&#8730;" class="left"> &#8730;
-      </button>
-      <button id="&#9729;" class="left" >&#9729;
-      </button>
-      <button class="left" ></button>
-      <button class="left" ></button>
-      <button class="left" ></button>
-      <button class="" id="c" >c</button>
-      <div class="center-panel">
-        <button class="number" id="1" >1</button>
-        <button class="number" id="2" >2</button>
-        <button class="number" id="3" >3</button>
-        <button class="number" id="4" >4</button>
-        <button class="number" id="5" >5</button>
-        <button class="number" id="6" >6</button>
-        <button class="number" id="7" >7</button>
-        <button class="number" id="8" >8</button>
-        <button class="number" id="9" >9</button>
-        <button id="&#177;"">&#177;</button>
-        <button class="number" id="0" >0</button>
-        <button id="." class="">.</button>
+    <div class="big-container">
+      <div class="left-container"></div>
+      <div class="mid-container">
+        <span id="calc-header">My calculator</span>
+        <span id="screen"></span>
+        <button class="left" onclick="info()">&#128712;</button>
+        <button id="&#128161;" class="left">&#128161;</button>
+        <button id="&#8634;" class="left">&#8634;</button>
+        <button id="&#8730;" class="left">&#8730;</button>
+        <button id="&#9729;" class="left">&#9729;</button>
+        <button class="left"></button>
+        <button class="left"></button>
+        <button class="" id="c">c</button>
+        <div class="center-panel">
+          <button class="number" id="1">1</button>
+          <button class="number" id="2">2</button>
+          <button class="number" id="3">3</button>
+          <button class="number" id="4">4</button>
+          <button class="number" id="5">5</button>
+          <button class="number" id="6">6</button>
+          <button class="number" id="7">7</button>
+          <button class="number" id="8">8</button>
+          <button class="number" id="9">9</button>
+          <button id="&#177;">&#177;</button>
+          <button class="number" id="0">0</button>
+          <button id="." class="">.</button>
+        </div>
+        <button id=">&#x2699;" class="right">&#x2699;</button>
+        <button id="back" class="right">&#8630;</button>
+        <button id="/" class="right operator">/</button>
+        <button id="*" class="right operator">x</button>
+        <button id="-" class="right operator">-</button>
+        <button id="+" class="right operator">+</button>
+        <button id="=" class="right equal">=</button>
       </div>
-      <button id=">&#x2699;" class="right">&#x2699;</button>
-      <button id="&#8630;" class="right">&#8630;</button>
-      <button id="/" class="right operator" >/</button>
-      <button id="*" class="right operator" >x</button>
-      <button id="-" class="right operator" >-</button>
-      <button id="+" class="right operator" >+</button>
-      <button id="=" class="right equal">=</button>
+      <div class="right-container"></div>
     </div>
     <script src="./JS/application.js"></script>
     <script src="./JS/calculator.js"></script>

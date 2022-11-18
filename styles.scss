@@ -1,4 +1,14 @@
-.container {
+.big-container {
+  display: flex;
+  flex-direction: row;
+}
+.left-container {
+  background-color: blueviolet;
+  height: 80vh;
+  width: 25%;
+}
+
+.mid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(7, 1fr);
@@ -6,6 +16,12 @@
   height: 80vh;
   width: 50%;
   margin: auto;
+}
+
+.right-container {
+  background-color: green;
+  height: 80vh;
+  width: 25%;
 }
 
 .number {

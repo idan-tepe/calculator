@@ -43,11 +43,20 @@ function calcul(button) {
   } else if (button.getAttribute("id") === ".") {
     if (!oper && !num1.includes(".")) {
       num1 = num1 + ".";
-      alert(1);
       display.innerHTML = num1;
     } else if (!num2.includes(".") && oper) {
       num2 = num2 + ".";
-      alert(2);
+      display.innerHTML = num1 + oper + num2;
+    }
+  } else if (button.getAttribute("id") === "back") {
+    if (num2) {
+      num2 = num2.slice(0, -1);
+      display.innerHTML = num1 + oper + num2;
+    } else if (oper) {
+      oper = "";
+      display.innerHTML = num1 + oper + num2;
+    } else {
+      num1 = num1.slice(0, -1);
       display.innerHTML = num1 + oper + num2;
     }
   }
