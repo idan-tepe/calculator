@@ -3,7 +3,8 @@ let num1 = "";
 let num2 = "";
 let oper = "";
 let oper2 = "";
-let flag = false;
+let flagSci = false;
+let flagHis = false;
 const display = document.getElementById("screen");
 for (let button = 0; button < buttons.length; button++) {
   buttons[button].addEventListener("click", (e) => {
@@ -11,14 +12,6 @@ for (let button = 0; button < buttons.length; button++) {
     calcul(element);
   });
 }
-
-// if number and not flag
-// num1 += input
-// if operator
-// oper =oper
-// switch to num2 flag =true
-// if num and flag
-// num2+=input
 
 function calcul(button: Element) {
   if (button.getAttribute("class") === "number") {
@@ -31,8 +24,15 @@ function calcul(button: Element) {
       display.innerHTML = num1;
     }
   } else if (button.getAttribute("class").includes("operator")) {
+    if (
+      (button.getAttribute("id") === "*" ||
+        button.getAttribute("id") === "/") &&
+      !num1
+    ) {
+      return;
+    }
     if (oper && num2) {
-      if (flag) {
+      if (flagSci) {
         if (oper2 === "") {
           num1 = num1 + oper + num2;
           oper2 = oper;
@@ -99,16 +99,33 @@ function calcul(button: Element) {
 const bulb = document.getElementById("bulb");
 bulb.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-  console.log("test");
 });
 
 const scientific = document.getElementById("scientific");
 scientific.addEventListener("click", () => {
-  flag = !flag;
+  flagSci = !flagSci;
   num1 = "";
   num2 = "";
   oper = "";
   oper2 = "";
   display.innerHTML = "";
-  console.log(flag);
+  if (flagSci) {
+    scientific.style.backgroundColor = "red";
+    document.getElementById("right-container").style.display = "block";
+  } else {
+    scientific.style.backgroundColor = "revert-layer";
+    document.getElementById("right-container").style.display = "none";
+  }
+});
+
+const hist = document.getElementById("hist");
+hist.addEventListener("click", () => {
+  flagHis = !flagHis;
+  if (flagHis) {
+    hist.style.backgroundColor = "red";
+    document.getElementById("left-container").style.display = "block";
+  } else {
+    hist.style.backgroundColor = "revert-layer";
+    document.getElementById("left-container").style.display = "none";
+  }
 });

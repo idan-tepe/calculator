@@ -6,6 +6,7 @@
   background-color: blueviolet;
   height: 80vh;
   width: 25%;
+  display: none;
 }
 
 .mid-container {
@@ -15,13 +16,14 @@
   grid-auto-flow: column;
   height: 80vh;
   width: 50%;
-  margin: auto;
+  margin: 0;
 }
 
 .right-container {
   background-color: green;
   height: 80vh;
   width: 25%;
+  display: none;
 }
 
 .number {
