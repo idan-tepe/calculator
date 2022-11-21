@@ -85,3 +85,12 @@ body.dark button {
 body.dark button:hover {
   background-color: rgb(186, 92, 92);
 }
+body.dark {
+  #bulb {
+    background-color: burlywood;
+  }
+  #screen {
+    background-color: yellow;
+    color: black;
+  }
+}
