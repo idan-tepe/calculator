@@ -57,3 +57,18 @@ hist.addEventListener("click", () => {
     document.getElementById("left-container").style.display = "none";
   }
 });
+
+function createHistory() {
+  let div = document.createElement("div");
+  div.innerHTML = num1 + oper + num2 + "=" + eval(num1 + oper + num2);
+  document.getElementById("left-container").appendChild(div);
+}
+
+function clearHistory() {
+  let lstDivs = Array.from(
+    document.getElementById("left-container").getElementsByTagName("div")
+  );
+  for (let x of lstDivs) {
+    x.remove();
+  }
+}

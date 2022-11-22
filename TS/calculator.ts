@@ -42,7 +42,9 @@ function calcul(button: Element) {
           num2 = "";
           display.innerHTML = num1 + oper;
         } else {
+          createHistory();
           num1 = eval(num1 + oper + num2);
+
           oper = button.getAttribute("id");
           num2 = "";
           oper2 = "";
@@ -50,6 +52,7 @@ function calcul(button: Element) {
         }
       } else {
         num1 = eval(num1 + oper + num2);
+        createHistory();
         oper = button.getAttribute("id");
         num2 = "";
         display.innerHTML = num1 + oper;
@@ -60,6 +63,7 @@ function calcul(button: Element) {
     }
   } else if (button.getAttribute("id") === "c") {
     //clear button
+    clearHistory();
     display.innerHTML = "";
     num1 = "";
     num2 = "";
@@ -69,6 +73,7 @@ function calcul(button: Element) {
     //equal button
     if (num1 && num2 && oper) {
       display.innerHTML = eval(num1 + oper + num2);
+      createHistory();
       num1 = eval(num1 + oper + num2);
       oper = "";
       num2 = "";

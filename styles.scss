@@ -3,10 +3,25 @@
   flex-direction: row;
 }
 .left-container {
-  background-color: blueviolet;
+  background-color: rgb(200, 159, 238);
   height: 80vh;
   width: 25%;
   display: none;
+  p {
+    display: flex;
+    border: 2px solid black;
+    margin: 0;
+    height: 15%;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+  }
+  div {
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;
+  }
 }
 
 .mid-container {
@@ -20,7 +35,7 @@
 }
 
 .right-container {
-  background-color: green;
+  background-color: rgb(204, 138, 128);
   height: 80vh;
   width: 25%;
   display: none;
