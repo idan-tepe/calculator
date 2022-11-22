@@ -5,6 +5,7 @@ let oper = "";
 let oper2 = "";
 let flagSci = false;
 let flagHis = false;
+let flagBulb = false;
 const display = document.getElementById("screen");
 for (let button = 0; button < buttons.length; button++) {
     buttons[button].addEventListener("click", (e) => {
@@ -25,7 +26,9 @@ function calcul(button) {
         }
     }
     else if (button.getAttribute("class").includes("operator")) {
-        if ((button.getAttribute("id") === "*" ||
+        if (
+        //not allowed to put * or / if there no numbers
+        (button.getAttribute("id") === "*" ||
             button.getAttribute("id") === "/") &&
             !num1) {
             return;
@@ -106,7 +109,15 @@ function calcul(button) {
 }
 const bulb = document.getElementById("bulb");
 bulb.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+    //document.body.classList.toggle("dark");
+    document.getElementById("screen").classList.toggle("screenBGC");
+    flagBulb = !flagBulb;
+    if (flagBulb) {
+        bulb.style.backgroundColor = "red";
+    }
+    else {
+        bulb.style.backgroundColor = "revert-layer";
+    }
 });
 const scientific = document.getElementById("scientific");
 scientific.addEventListener("click", () => {
@@ -135,5 +146,13 @@ hist.addEventListener("click", () => {
     else {
         hist.style.backgroundColor = "revert-layer";
         document.getElementById("left-container").style.display = "none";
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.search) {
+        const search = new URLSearchParams(window.location.search);
+        document.body.style.backgroundColor = search.get("color");
+        document.body.style.fontFamily = search.get("font");
+        document.body.classList.toggle(search.get("mode"));
     }
 });
