@@ -133,3 +133,53 @@ a {
   height: 100%;
   border: none;
 }
+
+.right-container {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "Rscreen Rscreen"
+    "Rscreen Rscreen"
+    "Xsq Rsq"
+    "XY YR"
+    "mod Py"
+    "Base Base"
+    "Base Base";
+}
+.title {
+  grid-area: title;
+  background-color: palevioletred;
+}
+.Rscreen {
+  grid-area: Rscreen;
+  background-color: aquamarine;
+}
+.Xsq {
+  grid-area: Xsq;
+  background-color: blue;
+}
+.Rsq {
+  grid-area: Rsq;
+  background-color: brown;
+}
+.XY {
+  grid-area: XY;
+  background-color: chartreuse;
+}
+.YR {
+  grid-area: YR;
+  background-color: coral;
+}
+.mod {
+  grid-area: mod;
+  background-color: darkolivegreen;
+}
+.Py {
+  grid-area: Py;
+  background-color: darkgray;
+}
+.Base {
+  grid-area: Base;
+  background-color: aqua;
+}

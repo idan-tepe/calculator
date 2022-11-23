@@ -7,7 +7,7 @@ function info() {
 function displayButtonInfo(x) {
   alert(x);
 }
-
+//take info from url
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.search) {
     const search = new URLSearchParams(window.location.search);
@@ -39,7 +39,7 @@ scientific.addEventListener("click", () => {
   display.innerHTML = "";
   if (flagSci) {
     scientific.style.backgroundColor = "red";
-    document.getElementById("right-container").style.display = "block";
+    document.getElementById("right-container").style.display = "grid";
   } else {
     scientific.style.backgroundColor = "revert-layer";
     document.getElementById("right-container").style.display = "none";

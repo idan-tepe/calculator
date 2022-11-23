@@ -102,3 +102,29 @@ function calcul(button: Element) {
     }
   }
 }
+//pow2
+const sq = document.getElementsByClassName("Xsq")[0];
+sq.addEventListener("click", () => {
+  console.log("hii");
+  let x = num1;
+  num1 = String(eval(num1 + oper + num2) ** 2);
+  oper = "";
+  num2 = "";
+  display.innerHTML = num1 + oper + num2;
+  let div = document.createElement("div");
+  div.innerHTML = x + "**2" + "=" + eval(num1 + oper + num2);
+  document.getElementById("left-container").appendChild(div);
+});
+//root2
+const sqroot = document.getElementsByClassName("Rsq")[0];
+sqroot.addEventListener("click", () => {
+  console.log("hii");
+  let x = num1;
+  num1 = String(eval(num1 + oper + num2) ** 0.5);
+  oper = "";
+  num2 = "";
+  display.innerHTML = num1 + oper + num2;
+  let div = document.createElement("div");
+  div.innerHTML = x + "**0.5" + "=" + eval(num1 + oper + num2);
+  document.getElementById("left-container").appendChild(div);
+});
