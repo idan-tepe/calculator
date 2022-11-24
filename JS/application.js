@@ -1,11 +1,20 @@
 function info() {
-    alert(`developer's name: idan teperovich
-  calaculator version: 1
-  this is a calculator!`);
+    if (document.querySelector(".popup")) {
+        document.querySelector(".popup").remove();
+    }
+    else {
+        let div = document.createElement("div");
+        div.className = "popup";
+        document.body.appendChild(div);
+        div.innerHTML = `developer's name: idan teperovich<br />
+  calaculator version: 1<br />
+  this is a calculator!<br>
+  Click again to cancel`;
+    }
 }
-function displayButtonInfo(x) {
-    alert(x);
-}
+document.getElementById("infoId").addEventListener("click", () => {
+    info();
+});
 //take info from url
 document.addEventListener("DOMContentLoaded", () => {
     if (window.location.search) {

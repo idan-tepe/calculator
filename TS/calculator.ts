@@ -86,6 +86,7 @@ function calcul(button: HTMLElement) {
     if (oper && num2) {
       if (flagSci) {
         if (oper2 === "") {
+          //
           num1 = num1 + oper + num2;
           oper2 = oper;
         } else {
