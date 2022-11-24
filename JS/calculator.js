@@ -88,13 +88,16 @@ function calcul(button) {
             return;
         }
         if (oper && num2) {
+            //אם קיימים לי שני מספרים ואופרטור
             if (flagSci) {
+                //אם אני נמצא במצב מדעי
                 if (oper2 === "") {
-                    //
+                    //אם לא קיים אופרטור שני אז מכניס את מה שקיבלתי לאופרטור השני
                     num1 = num1 + oper + num2;
                     oper2 = oper;
                 }
                 else {
+                    // קיים אופרטור שני אז עכשיו הוכנס השלישי אז מחשב את הסכום של הסכום הכולל ושם במספר1
                     createHistory();
                     num1 = eval(num1 + oper + num2);
                     oper2 = "";
@@ -104,6 +107,7 @@ function calcul(button) {
                 display.innerHTML = num1 + oper;
             }
             else {
+                //לא במצב מדעי ויש אופרטור ומספר2 לכן עושה חישוב ודוחף למספר1 את התוצאה
                 num1 = eval(num1 + oper + num2);
                 createHistory();
                 oper = button.getAttribute("id");
@@ -112,6 +116,7 @@ function calcul(button) {
             }
         }
         else {
+            //אין אופרטור וזה האופרטור הראשון שהוכנס
             oper = button.getAttribute("id");
             display.innerHTML = num1 + oper;
         }
