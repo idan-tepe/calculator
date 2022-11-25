@@ -46,7 +46,7 @@ function equalButton(button: HTMLElement) {
   if (num1 && num2 && oper) {
     display.innerHTML = eval(num1 + oper + num2);
     createHistory();
-    num1 = eval(num1 + oper + num2);
+    num1 = eval(num1 + oper + `(${num2})`);
     oper = "";
     num2 = "";
     oper2 = "";
@@ -111,6 +111,7 @@ function calcul(button: HTMLElement) {
     } else {
       //אין אופרטור וזה האופרטור הראשון שהוכנס
       oper = button.getAttribute("id");
+      num2 = "1/" //Prepare for the sqrt function
       display.innerHTML = num1 + oper;
     }
   } else if (button.getAttribute("id") === "c") {
