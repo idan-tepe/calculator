@@ -68,7 +68,7 @@ hist.addEventListener("click", () => {
 
 function createHistory() {
   let div = document.createElement("div");
-  div.innerHTML = num1 + oper + num2 + "=" + eval(num1 + oper + num2);
+  div.innerHTML = num1 + oper + num2 + "=" + eval(num1 + oper + `(${num2})`);
   document.getElementById("left-container").appendChild(div);
 }
 
