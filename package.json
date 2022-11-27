@@ -11,6 +11,7 @@
     "chokidar": "^3.5.3",
     "fill-range": "^7.0.1",
     "glob-parent": "^5.1.2",
+    "http-server": "^14.1.1",
     "immutable": "^4.1.0",
     "is-binary-path": "^2.1.0",
     "is-extglob": "^2.1.1",
