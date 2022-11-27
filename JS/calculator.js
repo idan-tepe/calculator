@@ -6,6 +6,7 @@ let oper2 = "";
 let flagSci = false;
 let flagHis = false;
 let flagBulb = false;
+let flagRemote = false;
 const PI = Math.PI;
 const display = document.getElementById("screen");
 for (let button = 0; button < buttons.length; button++) {
@@ -45,6 +46,9 @@ function clearButton(button) {
 }
 function equalButton(button) {
     if (num1 && num2 && oper) {
+        if (num2.includes("(")) {
+            num2 += ")";
+        }
         display.innerHTML = eval(num1 + oper + num2);
         createHistory();
         num1 = eval(num1 + oper + `(${num2})`);
@@ -93,14 +97,30 @@ function calcul(button) {
                 //אם אני נמצא במצב מדעי
                 if (oper2 === "") {
                     //אם לא קיים אופרטור שני אז מכניס את מה שקיבלתי לאופרטור השני
+                    if (num2.includes("("))
+                        num2 += ")";
                     num1 = num1 + oper + num2;
                     oper2 = oper;
                 }
                 else {
+                    if (num2.includes("("))
+                        num2 += ")";
+                    console.log(num2);
                     // קיים אופרטור שני אז עכשיו הוכנס השלישי אז מחשב את הסכום של הסכום הכולל ושם במספר1
-                    createHistory();
-                    num1 = eval(num1 + oper + num2);
-                    oper2 = "";
+                    if (!flagRemote) {
+                        //remote mode
+                        createHistory();
+                        num1 = eval(num1 + oper + num2);
+                        oper2 = "";
+                    }
+                    else {
+                        //not remote
+                        createHistory();
+                        remoteCalc().then((ans) => {
+                            num1 = ans;
+                        });
+                        oper2 = "";
+                    }
                 }
                 oper = button.getAttribute("id");
                 num2 = "";
@@ -108,11 +128,24 @@ function calcul(button) {
             }
             else {
                 //לא במצב מדעי ויש אופרטור ומספר2 לכן עושה חישוב ודוחף למספר1 את התוצאה
-                num1 = eval(num1 + oper + num2);
-                createHistory();
-                oper = button.getAttribute("id");
-                num2 = "";
-                display.innerHTML = num1 + oper;
+                if (!flagRemote) {
+                    //remote mode
+                    num1 = eval(num1 + oper + num2);
+                    createHistory();
+                    oper = button.getAttribute("id");
+                    num2 = "";
+                    display.innerHTML = num1 + oper;
+                }
+                else {
+                    //not remote
+                    remoteCalc().then((ans) => {
+                        num1 = ans;
+                    });
+                    createHistory();
+                    oper = button.getAttribute("id");
+                    num2 = "";
+                    display.innerHTML = num1 + oper;
+                }
             }
         }
         else {
@@ -166,7 +199,20 @@ sqroot.addEventListener("click", () => {
         }
     }
 });
+//.
 const nthroot = document.getElementsByClassName("YR")[0];
 nthroot.addEventListener("click", () => {
-    num2 = "1/";
+    num2 = "(1/";
 });
+const url = `http://api.mathjs.org/v4/?expr=`;
+const remoteButton = document.getElementById("remote");
+remoteButton.addEventListener("click", () => {
+    flagRemote = !flagRemote;
+});
+async function remoteCalc() {
+    const encode = encodeURIComponent(num1 + oper + num2);
+    const response = await fetch(url + encode);
+    const ans = await response.text();
+    display.innerHTML = ans;
+    return ans;
+}

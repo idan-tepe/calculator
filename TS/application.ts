@@ -65,6 +65,7 @@ hist.addEventListener("click", () => {
     document.getElementById("left-container").style.display = "none";
   }
 });
+//.
 
 function createHistory() {
   let div = document.createElement("div");
