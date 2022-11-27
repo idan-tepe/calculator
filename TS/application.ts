@@ -81,3 +81,4 @@ function clearHistory() {
     x.remove();
   }
 }
+
