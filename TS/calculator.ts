@@ -160,3 +160,5 @@ const nthroot = document.getElementsByClassName("YR")[0];
 nthroot.addEventListener("click", () => {
   num2 = "1/";
 });
+
+
