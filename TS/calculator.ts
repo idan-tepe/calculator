@@ -46,7 +46,7 @@ function equalButton(button: HTMLElement) {
   if (num1 && num2 && oper) {
     display.innerHTML = eval(num1 + oper + num2);
     createHistory();
-    num1 = eval(num1 + oper + num2);
+    num1 = eval(num1 + oper + `(${num2})`);
     oper = "";
     num2 = "";
     oper2 = "";
@@ -56,7 +56,7 @@ function dotButton(button: HTMLElement) {
   if (!oper && !num1.includes(".")) {
     num1 = num1 + ".";
     display.innerHTML = num1;
-  } else if (!num2.includes(".") && oper) {
+  } else if (!num2.includes(".") && oper && !num2.includes("/")) {
     num2 = num2 + ".";
     display.innerHTML = num1 + oper + num2;
   }
@@ -154,14 +154,9 @@ sqroot.addEventListener("click", () => {
       display.innerHTML = num1 + oper + num2;
     }
   }
+});
 
-  //   console.log("hii");
-  //   let x = num1;
-  //   num1 = String(eval(num1 + oper + num2) ** 0.5);
-  //   oper = "";
-  //   num2 = "";
-  //   display.innerHTML = num1 + oper + num2;
-  //   let div = document.createElement("div");
-  //   div.innerHTML = x + "**0.5" + "=" + eval(num1 + oper + num2);
-  //   document.getElementById("left-container").appendChild(div);
+const nthroot = document.getElementsByClassName("YR")[0];
+nthroot.addEventListener("click", () => {
+  num2 = "1/";
 });

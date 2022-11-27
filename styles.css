@@ -3,26 +3,27 @@
   flex-direction: row;
   width: 90%;
 }
+
 .left-container {
   background-color: rgb(200, 159, 238);
   height: 80vh;
   width: 25%;
   display: none;
-  p {
-    display: flex;
-    border: 2px solid black;
-    margin: 0;
-    height: 15%;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-    font-weight: bold;
-  }
-  div {
-    text-align: center;
-    vertical-align: middle;
-    margin: 5px;
-  }
+}
+.left-container p {
+  display: flex;
+  border: 2px solid black;
+  margin: 0;
+  height: 15%;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+}
+.left-container div {
+  text-align: center;
+  vertical-align: middle;
+  margin: 5px;
 }
 
 .mid-container {
@@ -44,9 +45,9 @@
 
 .number {
   background-color: rgb(229, 229, 145);
-  &:hover {
-    background-color: rgb(167, 167, 108);
-  }
+}
+.number:hover {
+  background-color: rgb(167, 167, 108);
 }
 
 button {
@@ -58,6 +59,7 @@ button:hover {
   font-weight: bold;
   background-color: lightgreen;
 }
+
 .left {
   grid-column: 1;
 }
@@ -67,14 +69,14 @@ button:hover {
 }
 
 .center-panel {
-  grid-column: 2/ 5;
-  grid-row: 4 / -1;
+  grid-column: 2/5;
+  grid-row: 4/-1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 #calc-header {
-  grid-column: 2 / 5;
+  grid-column: 2/5;
   grid-row: 1;
   text-align: center;
   border: 0.5px solid gray;
@@ -82,48 +84,54 @@ button:hover {
 }
 
 #screen {
-  grid-column: 2 / 5;
+  grid-column: 2/5;
   grid-row: 2;
   border: 3px solid gray;
   text-align: center;
 }
+
 .screenClass {
   background-color: rgb(181, 199, 232);
 }
+
 #c {
-  grid-column: 2 / 5;
+  grid-column: 2/5;
   grid-row: 3;
 }
+
 body.dark {
   color: aliceblue;
-  #calc-header {
-    background-color: brown;
-  }
+}
+body.dark #calc-header {
+  background-color: brown;
 }
 
 body.dark button {
   background-color: brown;
   color: aliceblue;
 }
+
 body.dark button:hover {
   background-color: rgb(186, 92, 92);
 }
-body.dark {
-  #screen {
-    color: black;
-  }
+
+body.dark #screen {
+  color: black;
 }
+
 .screenBGC {
   background-color: yellow;
 }
+
 a {
   text-decoration: none;
   color: black;
-  :visited {
-    text-decoration: none;
-    color: black;
-  }
 }
+a :visited {
+  text-decoration: none;
+  color: black;
+}
+
 #butt-set {
   background-color: lightblue;
   border: 0.5px solid gray;
@@ -138,48 +146,50 @@ a {
 .right-container {
   display: none;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "title title"
-    "Rscreen Rscreen"
-    "Rscreen Rscreen"
-    "Xsq Rsq"
-    "XY YR"
-    "mod Py"
-    "Base Base"
-    "Base Base";
+  grid-template-areas: "title title" "Rscreen Rscreen" "Rscreen Rscreen" "Xsq Rsq" "XY YR" "mod Py" "Base Base" "Base Base";
 }
+
 .title {
   grid-area: title;
   background-color: palevioletred;
 }
+
 .Rscreen {
   grid-area: Rscreen;
   background-color: aquamarine;
 }
+
 .Xsq {
   grid-area: Xsq;
 }
+
 .Rsq {
   grid-area: Rsq;
 }
+
 .XY {
   grid-area: XY;
 }
+
 .YR {
   grid-area: YR;
 }
+
 .mod {
   grid-area: mod;
 }
+
 .Py {
   grid-area: Py;
 }
+
 .Base {
   grid-area: Base;
   background-color: aqua;
 }
+
 .popup {
   background-color: green;
   position: absolute;
   top: 10%;
-}
+}/*# sourceMappingURL=styles.css.map */
